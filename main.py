@@ -303,11 +303,23 @@ def complex_test():
     print(e)
     print()
 
+def complex_test_evaluator():
+    x = Symbol("x")
+    f = Lam(x, x)
+    fa, fb = dup(f)
+    x1 = Symbol("x1")
+    f1 = Lam(x1, App(fa, App(fb, x1)))
+    f1a, f1b = dup(f1)
+    e = App(f1a, App(f1b, Int(0)))
+    e = Evaluator().eval(e)
+    print()
+
 # simple_test()
 # medium_test()
 # complex_test()
 
 simple_test_evaluator()
 medium_test_evaluator()
+complex_test_evaluator()
 
 print("done")
