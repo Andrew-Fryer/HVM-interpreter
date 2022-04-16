@@ -40,7 +40,7 @@ class Symbol:
 #     LEFT = 0
 #     RIGHT = 1
 
-# internal duplication node
+# internal duplication node used to signify that there are 2 refs to this ast node
 class Dup:
     def __init__(self, child):
         self.child = child
@@ -49,6 +49,7 @@ class Dup:
         return "<Dup {}>".format(str(self.child))
     def execute(self):
         if self.cache == None:
+            self.child = resolve(self.child)
             self.cache = self.child.dup()
         a, b = self.cache
         return a, b
@@ -77,6 +78,7 @@ def resolve(ast_node):
     if isinstance(ast_node, Symbol):
         return resolve(ast_node.get())
     if isinstance(ast_node, DupPtr):
+        # I think I am conflating resolving with reduction here...
         return resolve(ast_node.execute())
     return ast_node
 
@@ -119,7 +121,12 @@ class App:
         self.lam.param.bind(self.arg)
         self.lam = self.lam.reduce() # or should we call reduce on body here?
         return self.lam.body
-    # def dup()
+    def dup(self):
+        # TODO: we should not need this!
+        # Wait, what it we just `return self, self`?
+        la, lb = dup(self.lam)
+        aa, ab = dup(self.arg)
+        return App(la, aa), App(lb, ab)
 
 # class Add:
 #     def __init__(self, lhs, rhs):
@@ -157,7 +164,7 @@ def simple_test():
 def test_from_hvm_how_doc():
     x = Symbol("x")
     y = Symbol("y")
-    a, b = Dup(Lam)
+    a, b = dup(Lam)
 
 def medium_test():
     x = Symbol("x")
@@ -172,10 +179,10 @@ def medium_test():
 def complex_test():
     x = Symbol("x")
     f = Lam(x, x)
-    fa, fb = Dup(f).syms()
+    fa, fb = dup(f)
     x1 = Symbol("x1")
     f1 = Lam(x1, App(fa, App(fb, x1)))
-    f1a, f1b = Dup(f1).syms()
+    f1a, f1b = dup(f1)
     e = App(f1a, App(f1b, Int(0)))
     print(e)
     e = e.reduce()
@@ -183,7 +190,7 @@ def complex_test():
     print()
 
 # simple_test()
-medium_test()
-# complex_test()
+# medium_test()
+complex_test()
 
 print("done")
