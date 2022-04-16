@@ -314,12 +314,24 @@ def complex_test_evaluator():
     e = Evaluator().eval(e)
     print()
 
+def trick_test_evaluator():
+    # from HVM How page:
+    # let g = λf(λx(f (f x)))
+    # (g g)
+    x = Symbol("x")
+    f = Symbol("f")
+    g = Lam(f, Lam(x, App(f, App(f, x))))
+    e = App(g, g)
+    e = Evaluator().eval(e)
+    print()
+
 # simple_test()
 # medium_test()
 # complex_test()
 
-simple_test_evaluator()
-medium_test_evaluator()
-complex_test_evaluator()
+# simple_test_evaluator()
+# medium_test_evaluator()
+# complex_test_evaluator()
+trick_test_evaluator()
 
 print("done")
