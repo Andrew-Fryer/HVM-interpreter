@@ -51,24 +51,27 @@ class Dup:
     def execute(self):
         if self.cache == None:
             self.child = resolve(self.child)
+            if isinstance(self.child, DupPtr):
+                self.child = self.child.reduce() # this may reduce too far though
+            self.child = resolve(self.child) # eww, do I need a loop here?
             self.cache = self.child.dup()
         a, b = self.cache
         return a, b
 
 class DupPtr:
     def __init__(self, dup: Dup):
-        self.dup = dup
+        self.d = dup
     def __str__(self):
-        return str(self.dup)
+        return str(self.d)
     def reduce(self):
         raise NotImplementedError()
 class DupLeft(DupPtr):
     def reduce(self):
-        a, b = self.dup.execute()
+        a, b = self.d.execute()
         return a
 class DupRight(DupPtr):
     def reduce(self):
-        a, b = self.dup.execute()
+        a, b = self.d.execute()
         return b
 
 def dup(child):
@@ -190,7 +193,7 @@ def complex_test():
     f1a, f1b = dup(f1)
     e = App(f1a, App(f1b, Int(0)))
     print(e)
-    e = e.reduce()
+    e = e.reduce().reduce().get()
     print(e)
     print()
 
