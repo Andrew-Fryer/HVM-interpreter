@@ -1,11 +1,5 @@
 from enum import Enum
 
-class Ast:
-    def reduce(self):
-        raise NotImplementedError()
-    def dup(self):
-        raise NotImplementedError()
-
 class SymbolState(Enum):
     NEW = 0
     BOUND = 1
@@ -16,6 +10,7 @@ class SymbolState(Enum):
 # I believe that evaluation order should prevent us from attempting to get values out of new symbols
 class Symbol:
     # this is a shell to be used once or not at all
+    # presently, this is only used for lambda parameters
     ctr = 0
     space = ['']
     def __init__(self, name: str=''):
@@ -43,10 +38,6 @@ class Symbol:
         assert self.state == SymbolState.BOUND
         self.state = SymbolState.USED
         return self.binding
-
-# class DupDir(Enum):
-#     LEFT = 0
-#     RIGHT = 1
 
 # internal duplication node used to signify that there are 2 refs to this ast node
 class Dup:
@@ -81,24 +72,20 @@ class DupPtr:
 class DupLeft(DupPtr):
     def __str__(self):
         if self.state == DupState.EXECUTED:
-            return "<DupLeft {}".format(str(self.binding))
+            return "<DupLeft {}>".format(str(self.binding))
         return "<Dup_{} {}>".format(str(self.d.id), str(self.d.child))
 class DupRight(DupPtr):
     def __str__(self):
         if self.state == DupState.EXECUTED:
-            return "<DupRight {}".format(str(self.binding))
+            return "<DupRight {}>".format(str(self.binding))
         return "<Dup_{}>".format(str(self.d.id))
 
+# helper for building ASTs in tests
 def dup(child):
     d = Dup(child)
     l, r = DupLeft(d), DupRight(d)
     d.link_in(l, r)
     return l, r
-
-def resolve(ast_node):
-    if isinstance(ast_node, Symbol):
-        return resolve(ast_node.get())
-    return ast_node
 
 class Sup:
     def __init__(self, left, right):
@@ -113,17 +100,6 @@ class Lam:
         self.body = body
     def __str__(self):
         return "<Lam {} {}>".format(str(self.param), str(self.body))
-    def reduce(self):
-        self.body = resolve(self.body)
-        self.body = self.body.reduce()
-        return self
-    def dup(self):
-        xa = Symbol()
-        xb = Symbol()
-        self.param.bind(Sup(xa, xb))
-        self.body = resolve(self.body)
-        a, b = dup(self.body)
-        return Lam(xa, a), Lam(xb, b)
 
 class App:
     def __init__(self, lam: Lam, arg):
@@ -131,22 +107,6 @@ class App:
         self.arg = arg
     def __str__(self):
         return "<App {} {}>".format(str(self.lam), str(self.arg))
-    def reduce(self):
-        # replace instance with parameter
-        # Note that the arg must be used 0 or 1 time(s)
-        self.lam = resolve(self.lam)
-        if isinstance(self.lam, DupPtr):
-            self.lam = self.lam.reduce()
-        self.lam.param.bind(self.arg)
-        self.lam = self.lam.reduce() # or should we call reduce on body here?
-        return self.lam.body
-    def dup(self):
-        # Wait, what it we just `return self, self`?
-        # return self, self
-        # TODO: we should not need this!
-        la, lb = dup(self.lam)
-        aa, ab = dup(self.arg)
-        return App(la, aa), App(lb, ab)
 
 # class Add:
 #     def __init__(self, lhs, rhs):
@@ -167,10 +127,6 @@ class Int:
         self.value = value
     def __str__(self):
         return str(self.value)
-    def reduce(self):
-        return self
-    def dup(self):
-        return self, self # okay because Int is immutable
 
 class Evaluator:
     def __init__(self):
@@ -196,6 +152,7 @@ class Evaluator:
                 app.lam = lam.get()
             elif isinstance(lam, DupPtr):
                 dup_ptr = lam
+                # is this correct? Like, does this violate normal order reduction?
                 app.lam, d = self.reduce(dup_ptr)
                 # ensure we made progress reducing the child
                 assert not d
@@ -232,7 +189,6 @@ class Evaluator:
                         xa = Symbol()
                         xb = Symbol()
                         lam.param.bind(Sup(xa, xb))
-                        lam.body = resolve(lam.body)
                         a, b = dup(lam.body)
                         left, right = Lam(xa, a), Lam(xb, b)
                     else:
@@ -240,7 +196,6 @@ class Evaluator:
                     dup_node.left.bind(left)
                     dup_node.right.bind(right)
                     assert dup_ptr.state == DupState.EXECUTED
-
         elif isinstance(ast, Lam):
             done = True
         elif isinstance(ast, Int):
@@ -250,15 +205,6 @@ class Evaluator:
         else:
             assert False
         return ast, done
-
-def simple_test():
-    x = Symbol("x")
-    f = Lam(x, x)
-    e = App(f, Int(0))
-    print(e)
-    e = e.reduce()
-    print(e)
-    print()
 
 def simple_test_evaluator():
     x = Symbol("x")
@@ -271,16 +217,7 @@ def test_from_hvm_how_doc():
     x = Symbol("x")
     y = Symbol("y")
     a, b = dup(Lam)
-
-def medium_test():
-    x = Symbol("x")
-    f = Lam(x, x)
-    fa, fb = dup(f)
-    e = App(fa, App(fb, Int(0)))
-    print(e)
-    e = e.reduce()
-    print(e)
-    print()
+    # TODO
 
 def medium_test_evaluator():
     x = Symbol("x")
@@ -288,19 +225,6 @@ def medium_test_evaluator():
     fa, fb = dup(f)
     e = App(fa, App(fb, Int(0)))
     e = Evaluator().eval(e)
-    print()
-
-def complex_test():
-    x = Symbol("x")
-    f = Lam(x, x)
-    fa, fb = dup(f)
-    x1 = Symbol("x1")
-    f1 = Lam(x1, App(fa, App(fb, x1)))
-    f1a, f1b = dup(f1)
-    e = App(f1a, App(f1b, Int(0)))
-    print(e)
-    e = e.reduce().reduce().get()
-    print(e)
     print()
 
 def complex_test_evaluator():
@@ -325,13 +249,9 @@ def trick_test_evaluator():
     e = Evaluator().eval(e)
     print()
 
-# simple_test()
-# medium_test()
-# complex_test()
-
-# simple_test_evaluator()
-# medium_test_evaluator()
-# complex_test_evaluator()
-trick_test_evaluator()
+simple_test_evaluator()
+medium_test_evaluator()
+complex_test_evaluator()
+# trick_test_evaluator()
 
 print("done")
