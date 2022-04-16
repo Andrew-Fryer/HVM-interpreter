@@ -70,7 +70,7 @@ class Lam:
         self.param.bind(Sup(xa, xb))
         if isinstance(self.body, Symbol):
             self.body = self.body.get()
-        a, b = self.body.dup()
+        a, b = Dup(self.body).syms()
         return Lam(xa, a), Lam(xb, b)
 
 class App:
@@ -122,6 +122,11 @@ def simple_test():
     print(e)
     print()
 
+def test_from_hvm_how_doc():
+    x = Symbol("x")
+    y = Symbol("y")
+    a, b = Dup(Lam)
+
 def medium_test():
     x = Symbol("x")
     f = Lam(x, x)
@@ -135,18 +140,18 @@ def medium_test():
 def complex_test():
     x = Symbol("x")
     f = Lam(x, x)
-    f_dup = Dup(f)
+    fa, fb = Dup(f).syms()
     x1 = Symbol("x1")
-    f1 = Lam(x1, App(f_dup, App(f_dup, x1)))
-    f1_dup = Dup(f1)
-    e = App(f1_dup, App(f1_dup, Int(0)))
+    f1 = Lam(x1, App(fa, App(fb, x1)))
+    f1a, f1b = Dup(f1).syms()
+    e = App(f1a, App(f1b, Int(0)))
     print(e)
     e = e.reduce()
     print(e)
     print()
 
 # simple_test()
-medium_test()
-# complex_test()
+# medium_test()
+complex_test()
 
 print("done")
