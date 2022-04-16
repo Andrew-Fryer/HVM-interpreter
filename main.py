@@ -26,7 +26,8 @@ class Symbol:
         if self.state == SymbolState.BOUND:
             return self.name
             # return str(self.binding) # causes infinite recursion
-        assert False # should not be holing on to Symbols that are used up
+        # assert False # should not be holing on to Symbols that are used up
+        return self.name
     def bind(self, value):
         assert self.state == SymbolState.NEW
         self.binding = value
@@ -45,38 +46,40 @@ class Symbol:
 class Dup:
     def __init__(self, child):
         self.child = child
+        self.left = None
+        self.right = None
         self.cache = None
+    def link_in(self, left, right):
+        self.left = left
+        self.right = right
     def __str__(self):
         return "<Dup {}>".format(str(self.child))
-    def execute(self):
-        if self.cache == None:
-            self.child = resolve(self.child)
-            if isinstance(self.child, DupPtr):
-                self.child = self.child.reduce() # this may reduce too far though
-            self.child = resolve(self.child) # eww, do I need a loop here?
-            self.cache = self.child.dup()
-        a, b = self.cache
-        return a, b
+
+class DupState(Enum):
+    FRESH = 0
+    EXECUTED = 1
 
 class DupPtr:
     def __init__(self, dup: Dup):
         self.d = dup
+        self.state = DupState.FRESH
+        self.binding = None
+    def bind(self, value):
+        assert self.state == DupState.FRESH
+        self.binding = value
+        self.state = DupState.EXECUTED
     def __str__(self):
         return str(self.d)
-    def reduce(self):
-        raise NotImplementedError()
 class DupLeft(DupPtr):
-    def reduce(self):
-        a, b = self.d.execute()
-        return a
+    pass
 class DupRight(DupPtr):
-    def reduce(self):
-        a, b = self.d.execute()
-        return b
+    pass
 
 def dup(child):
     d = Dup(child)
-    return DupLeft(d), DupRight(d)
+    l, r = DupLeft(d), DupRight(d)
+    d.link_in(l, r)
+    return l, r
 
 def resolve(ast_node):
     if isinstance(ast_node, Symbol):
@@ -84,14 +87,11 @@ def resolve(ast_node):
     return ast_node
 
 class Sup:
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
+    def __init__(self, left, right):
+        self.left = left
+        self.right = right
     def __str__(self):
-        return "{" + str(self.a) + ", " + str(self.b) + "}"
-    def dup(self):
-        # TODO: implement other dup-sup and decision betwen them
-        return self.a, self.b
+        return "{" + str(self.left) + ", " + str(self.right) + "}"
 
 class Lam:
     def __init__(self, param: Symbol, body):
@@ -158,7 +158,84 @@ class Int:
     def dup(self):
         return self, self # okay because Int is immutable
 
-# TODO: switch reduction to a visitor style in a loop for easier debugging
+class Evaluator:
+    def __init__(self):
+        pass
+    def eval(self, ast):
+        done = False
+        while not done:
+            print(ast)
+            ast, done = self.reduce(ast)
+        return ast
+    def reduce(self, ast):
+        done = False
+        if isinstance(ast, App):
+            app = ast
+            # try to perform application
+            lam, arg = app.lam, app.arg
+            if isinstance(lam, Lam):
+                # perform application
+                lam.param.bind(app.arg)
+                ast = lam.body
+            if isinstance(lam, Symbol):
+                # substitue symbol
+                app.lam = lam.get()
+            elif isinstance(lam, DupPtr):
+                dup_ptr = lam
+                app.lam, d = self.reduce(dup_ptr)
+                # ensure we made progress reducing the child
+                assert not d
+        elif isinstance(ast, Symbol):
+            ast = ast.get()
+        elif isinstance(ast, DupPtr):
+            dup_ptr = ast
+            if dup_ptr.state == DupState.EXECUTED:
+                ast = dup_ptr.binding
+            else:
+                # the dup has not been executed
+                dup_node = dup_ptr.d
+                c = dup_node.child
+                d = True
+                if isinstance(c, App)\
+                    or isinstance(c, Symbol)\
+                        or isinstance(c, DupPtr):
+                    dup_node.child, d = self.reduce(c)
+                    # ensure we made progress reducing the child
+                    assert not d
+                else:
+                    # perform duplication
+                    # this feels like a visitor class
+                    left, right = None, None
+                    if isinstance(c, Int):
+                        left, right = c, c
+                    elif isinstance(c, Sup):
+                        sup = c
+                        # TODO: implement other dup-sup and decision betwen them
+                        left, right = sup.left, sup.right
+                    elif isinstance(c, Lam):
+                        lam = c
+                        # incrementally clone lambda
+                        xa = Symbol()
+                        xb = Symbol()
+                        lam.param.bind(Sup(xa, xb))
+                        lam.body = resolve(lam.body)
+                        a, b = dup(lam.body)
+                        left, right = Lam(xa, a), Lam(xb, b)
+                    else:
+                        assert False
+                    dup_node.left.bind(left)
+                    dup_node.right.bind(right)
+                    assert dup_ptr.state == DupState.EXECUTED
+
+        elif isinstance(ast, Lam):
+            done = True
+        elif isinstance(ast, Int):
+            done = True
+        elif isinstance(ast, Sup):
+            assert False
+        else:
+            assert False
+        return ast, done
 
 def simple_test():
     x = Symbol("x")
@@ -166,6 +243,15 @@ def simple_test():
     e = App(f, Int(0))
     print(e)
     e = e.reduce()
+    print(e)
+    print()
+
+def simple_test_evaluator():
+    x = Symbol("x")
+    f = Lam(x, x)
+    e = App(f, Int(0))
+    print(e)
+    e = Evaluator().eval(e)
     print(e)
     print()
 
@@ -184,6 +270,16 @@ def medium_test():
     print(e)
     print()
 
+def medium_test_evaluator():
+    x = Symbol("x")
+    f = Lam(x, x)
+    fa, fb = dup(f)
+    e = App(fa, App(fb, Int(0)))
+    print(e)
+    e = Evaluator().eval(e)
+    print(e)
+    print()
+
 def complex_test():
     x = Symbol("x")
     f = Lam(x, x)
@@ -199,6 +295,9 @@ def complex_test():
 
 # simple_test()
 # medium_test()
-complex_test()
+# complex_test()
+
+# simple_test_evaluator()
+medium_test_evaluator()
 
 print("done")
