@@ -181,8 +181,25 @@ class Evaluator:
                         left, right = c, c
                     elif isinstance(c, Sup):
                         sup = c
-                        # TODO: implement other dup-sup and decision betwen them
-                        left, right = sup.left, sup.right
+                        # TODO: implement decision betwen Dup-Sup rules
+                        # See https://github.com/Kindelia/HVM/blob/master/HOW.md#superposed-duplication
+                        '''
+                        If this Dup-Sup represents the end of a duplication process, it must go with the former rule. However, if you're duplicating a term, which itself duplicates something, then this rule must be used.
+                        '''
+                        end_of_duping = True
+                        if end_of_duping:
+                            left, right = sup.left, sup.right
+                        else:
+                            # Notation from HVM How:
+                            # a, b = sup.left, sup.right
+                            # xA, yA = dup(a)
+                            # xB, yB = dup(b)
+                            # x = Sup(xA, xB)
+                            # y = Sup(yA, yB)
+                            # left, right = x, y
+                            la, lb = dup(sup.left)
+                            ra, rb = dup(sup.right)
+                            left, right = Sup(la, ra), Sup(lb, rb)
                     elif isinstance(c, Lam):
                         lam = c
                         # incrementally clone lambda
