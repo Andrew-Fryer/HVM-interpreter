@@ -16,7 +16,13 @@ class SymbolState(Enum):
 # I believe that evaluation order should prevent us from attempting to get values out of new symbols
 class Symbol:
     # this is a shell to be used once or not at all
+    ctr = 0
+    space = ['']
     def __init__(self, name: str=''):
+        while name in Symbol.space:
+            name = 'x_' + str(Symbol.ctr)
+            Symbol.ctr += 1
+        Symbol.space.append(name)
         self.name = name
         self.state = SymbolState.NEW
         self.binding = None
@@ -24,7 +30,7 @@ class Symbol:
         if self.state == SymbolState.NEW:
             return self.name
         if self.state == SymbolState.BOUND:
-            return self.name
+            return "{}=[{}]".format(self.name, str(self.binding))
             # return str(self.binding) # causes infinite recursion
         # assert False # should not be holing on to Symbols that are used up
         return self.name
@@ -44,16 +50,18 @@ class Symbol:
 
 # internal duplication node used to signify that there are 2 refs to this ast node
 class Dup:
+    ctr = 0
     def __init__(self, child):
         self.child = child
         self.left = None
         self.right = None
         self.cache = None
+
+        self.id = Dup.ctr
+        Dup.ctr += 1
     def link_in(self, left, right):
         self.left = left
         self.right = right
-    def __str__(self):
-        return "<Dup {}>".format(str(self.child))
 
 class DupState(Enum):
     FRESH = 0
@@ -71,9 +79,15 @@ class DupPtr:
     def __str__(self):
         return str(self.d)
 class DupLeft(DupPtr):
-    pass
+    def __str__(self):
+        if self.state == DupState.EXECUTED:
+            return "<DupLeft {}".format(str(self.binding))
+        return "<Dup_{} {}>".format(str(self.d.id), str(self.d.child))
 class DupRight(DupPtr):
-    pass
+    def __str__(self):
+        if self.state == DupState.EXECUTED:
+            return "<DupRight {}".format(str(self.binding))
+        return "<Dup_{}>".format(str(self.d.id))
 
 def dup(child):
     d = Dup(child)
@@ -250,9 +264,7 @@ def simple_test_evaluator():
     x = Symbol("x")
     f = Lam(x, x)
     e = App(f, Int(0))
-    print(e)
     e = Evaluator().eval(e)
-    print(e)
     print()
 
 def test_from_hvm_how_doc():
@@ -275,9 +287,7 @@ def medium_test_evaluator():
     f = Lam(x, x)
     fa, fb = dup(f)
     e = App(fa, App(fb, Int(0)))
-    print(e)
     e = Evaluator().eval(e)
-    print(e)
     print()
 
 def complex_test():
@@ -297,7 +307,7 @@ def complex_test():
 # medium_test()
 # complex_test()
 
-# simple_test_evaluator()
+simple_test_evaluator()
 medium_test_evaluator()
 
 print("done")
