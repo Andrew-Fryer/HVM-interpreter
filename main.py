@@ -122,11 +122,12 @@ class App:
         self.lam = self.lam.reduce() # or should we call reduce on body here?
         return self.lam.body
     def dup(self):
-        # TODO: we should not need this!
         # Wait, what it we just `return self, self`?
-        la, lb = dup(self.lam)
-        aa, ab = dup(self.arg)
-        return App(la, aa), App(lb, ab)
+        return self, self
+        # TODO: we should not need this!
+        # la, lb = dup(self.lam)
+        # aa, ab = dup(self.arg)
+        # return App(la, aa), App(lb, ab)
 
 # class Add:
 #     def __init__(self, lhs, rhs):
