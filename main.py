@@ -24,7 +24,8 @@ class Symbol:
         if self.state == SymbolState.NEW:
             return self.name
         if self.state == SymbolState.BOUND:
-            return self.binding
+            return self.name
+            # return str(self.binding) # causes infinite recursion
         assert False # should not be holing on to Symbols that are used up
     def bind(self, value):
         assert self.state == SymbolState.NEW
@@ -59,14 +60,14 @@ class DupPtr:
         self.dup = dup
     def __str__(self):
         return str(self.dup)
-    def execute(self): # I think this is reduce...
+    def reduce(self):
         raise NotImplementedError()
 class DupLeft(DupPtr):
-    def execute(self):
+    def reduce(self):
         a, b = self.dup.execute()
         return a
 class DupRight(DupPtr):
-    def execute(self):
+    def reduce(self):
         a, b = self.dup.execute()
         return b
 
@@ -77,15 +78,14 @@ def dup(child):
 def resolve(ast_node):
     if isinstance(ast_node, Symbol):
         return resolve(ast_node.get())
-    if isinstance(ast_node, DupPtr):
-        # I think I am conflating resolving with reduction here...
-        return resolve(ast_node.execute())
     return ast_node
 
 class Sup:
     def __init__(self, a, b):
         self.a = a
         self.b = b
+    def __str__(self):
+        return "{" + str(self.a) + ", " + str(self.b) + "}"
     def dup(self):
         # TODO: implement other dup-sup and decision betwen them
         return self.a, self.b
@@ -118,16 +118,18 @@ class App:
         # replace instance with parameter
         # Note that the arg must be used 0 or 1 time(s)
         self.lam = resolve(self.lam)
+        if isinstance(self.lam, DupPtr):
+            self.lam = self.lam.reduce()
         self.lam.param.bind(self.arg)
         self.lam = self.lam.reduce() # or should we call reduce on body here?
         return self.lam.body
     def dup(self):
         # Wait, what it we just `return self, self`?
-        return self, self
+        # return self, self
         # TODO: we should not need this!
-        # la, lb = dup(self.lam)
-        # aa, ab = dup(self.arg)
-        # return App(la, aa), App(lb, ab)
+        la, lb = dup(self.lam)
+        aa, ab = dup(self.arg)
+        return App(la, aa), App(lb, ab)
 
 # class Add:
 #     def __init__(self, lhs, rhs):
@@ -152,6 +154,8 @@ class Int:
         return self
     def dup(self):
         return self, self # okay because Int is immutable
+
+# TODO: switch reduction to a visitor style in a loop for easier debugging
 
 def simple_test():
     x = Symbol("x")
