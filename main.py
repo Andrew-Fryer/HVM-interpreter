@@ -272,11 +272,27 @@ def trick_test_evaluator():
     print()
 
 def my_test_evaluator():
-    pass
+    x0 = Symbol("x0")
+    x1 = Symbol("x1")
+    x2 = Symbol("x2")
+    f0 = Lam(x0, x0)
+    f0a, f0b = dup(f0)
+    f1 = Lam(x1, App(f0a, App(f0b, x1)))
+    f1a, f1b = dup(f1)
+    f2 = Lam(x2, App(f1a, App(f1b, x2)))
+    e = App(f2, Int(0))
+    e = Evaluator().eval(e)
+    print()
+
+# def test_dups():
+#     x = Symbol("x")
+#     f = Lam(x, x)
+
 
 simple_test_evaluator()
 medium_test_evaluator()
 complex_test_evaluator()
 trick_test_evaluator()
+my_test_evaluator()
 
 print("done")
