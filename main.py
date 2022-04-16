@@ -186,9 +186,10 @@ class Evaluator:
                         # TODO: implement decision betwen Dup-Sup rules
                         # See https://github.com/Kindelia/HVM/blob/master/HOW.md#superposed-duplication
                         '''
-                        If this Dup-Sup represents the end of a duplication process, it must go with the former rule. However, if you're duplicating a term, which itself duplicates something, then this rule must be used.
+                        "If this Dup-Sup represents the end of a duplication process, it must go with the former rule. However, if you're duplicating a term, which itself duplicates something, then this rule must be used."
                         '''
                         end_of_duping = True
+
                         if end_of_duping:
                             left, right = sup.left, sup.right
                         else:
@@ -263,14 +264,19 @@ def trick_test_evaluator():
     # (g g)
     x = Symbol("x")
     f = Symbol("f")
-    g = Lam(f, Lam(x, App(f, App(f, x))))
-    e = App(g, g)
+    fa, fb = dup(f)
+    g = Lam(f, Lam(x, App(fa, App(fb, x))))
+    ga, gb = dup(g)
+    e = App(ga, gb)
     e = Evaluator().eval(e)
     print()
+
+def my_test_evaluator():
+    pass
 
 simple_test_evaluator()
 medium_test_evaluator()
 complex_test_evaluator()
-# trick_test_evaluator()
+trick_test_evaluator()
 
 print("done")
