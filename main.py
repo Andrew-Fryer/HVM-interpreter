@@ -1,49 +1,84 @@
+from enum import Enum
+
 class Ast:
     def reduce(self):
         raise NotImplementedError()
     def dup(self):
         raise NotImplementedError()
 
-# lambdas don't have scopes
+class SymbolState(Enum):
+    NEW = 0
+    BOUND = 1
+    USED = 2
+
+# Remember that lambdas don't have scopes
+# Attempting to get a value out of a new (or used) Symbol is an error,
+# I believe that evaluation order should prevent us from attempting to get values out of new symbols
 class Symbol:
     # this is a shell to be used once or not at all
-    def __init__(self, name: str='', trigger=None):
+    def __init__(self, name: str=''):
         self.name = name
-        self.state = 0 # 0 means new, 1 means bound, 2 means used up
+        self.state = SymbolState.NEW
         self.binding = None
-        self.trigger = trigger
     def __str__(self):
-        if self.state == 0:
+        if self.state == SymbolState.NEW:
             return self.name
-        if self.state == 1:
+        if self.state == SymbolState.BOUND:
             return self.binding
         assert False # should not be holing on to Symbols that are used up
     def bind(self, value):
-        assert self.state == 0
+        assert self.state == SymbolState.NEW
         self.binding = value
-        self.state = 1
+        self.state = SymbolState.BOUND
     def get(self):
-        # normal order reduction behaves lazily, but I had to add this hack to allow symbols of dups to trigger the dup to do the duplication
-        if self.state == 0 and self.trigger != None:
-            self.trigger()
-        assert self.state == 1
-        self.state = 2
+        # normal order reduction behaves lazily
+        assert self.state == SymbolState.BOUND
+        self.state = SymbolState.USED
         return self.binding
 
+# class DupDir(Enum):
+#     LEFT = 0
+#     RIGHT = 1
+
+# internal duplication node
 class Dup:
     def __init__(self, child):
         self.child = child
-        self.a = Symbol(trigger=lambda: self.execute())
-        self.b = Symbol(trigger=lambda: self.execute())
-    def syms(self):
-        return self.a, self.b
+        self.cache = None
     def __str__(self):
         return "<Dup {}>".format(str(self.child))
     def execute(self):
-        a, b = self.child.dup()
-        self.a.bind(a)
-        self.b.bind(b)
-        # ...and this dup node is used up now
+        if self.cache == None:
+            self.cache = self.child.dup()
+        a, b = self.cache
+        return a, b
+
+class DupPtr:
+    def __init__(self, dup: Dup):
+        self.dup = dup
+    def __str__(self):
+        return str(self.dup)
+    def execute(self): # I think this is reduce...
+        raise NotImplementedError()
+class DupLeft(DupPtr):
+    def execute(self):
+        a, b = self.dup.execute()
+        return a
+class DupRight(DupPtr):
+    def execute(self):
+        a, b = self.dup.execute()
+        return b
+
+def dup(child):
+    d = Dup(child)
+    return DupLeft(d), DupRight(d)
+
+def resolve(ast_node):
+    if isinstance(ast_node, Symbol):
+        return resolve(ast_node.get())
+    if isinstance(ast_node, DupPtr):
+        return resolve(ast_node.execute())
+    return ast_node
 
 class Sup:
     def __init__(self, a, b):
@@ -60,17 +95,15 @@ class Lam:
     def __str__(self):
         return "<Lam {} {}>".format(str(self.param), str(self.body))
     def reduce(self):
-        if isinstance(self.body, Symbol):
-            self.body = self.body.get()
+        self.body = resolve(self.body)
         self.body = self.body.reduce()
         return self
     def dup(self):
         xa = Symbol()
         xb = Symbol()
         self.param.bind(Sup(xa, xb))
-        if isinstance(self.body, Symbol):
-            self.body = self.body.get()
-        a, b = Dup(self.body).syms()
+        self.body = resolve(self.body)
+        a, b = dup(self.body)
         return Lam(xa, a), Lam(xb, b)
 
 class App:
@@ -82,8 +115,7 @@ class App:
     def reduce(self):
         # replace instance with parameter
         # Note that the arg must be used 0 or 1 time(s)
-        if isinstance(self.lam, Symbol):
-            self.lam = self.lam.get()
+        self.lam = resolve(self.lam)
         self.lam.param.bind(self.arg)
         self.lam = self.lam.reduce() # or should we call reduce on body here?
         return self.lam.body
@@ -130,7 +162,7 @@ def test_from_hvm_how_doc():
 def medium_test():
     x = Symbol("x")
     f = Lam(x, x)
-    fa, fb = Dup(f).syms()
+    fa, fb = dup(f)
     e = App(fa, App(fb, Int(0)))
     print(e)
     e = e.reduce()
@@ -151,7 +183,7 @@ def complex_test():
     print()
 
 # simple_test()
-# medium_test()
-complex_test()
+medium_test()
+# complex_test()
 
 print("done")
