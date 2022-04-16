@@ -58,6 +58,7 @@ class DupState(Enum):
     FRESH = 0
     EXECUTED = 1
 
+# duplicate/fan in nodes
 class DupPtr:
     def __init__(self, dup: Dup):
         self.d = dup
@@ -87,6 +88,7 @@ def dup(child):
     d.link_in(l, r)
     return l, r
 
+# superposition/fan out node
 class Sup:
     def __init__(self, left, right):
         self.left = left
