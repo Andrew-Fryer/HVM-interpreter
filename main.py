@@ -147,10 +147,12 @@ class Evaluator:
             lam, arg = app.lam, app.arg
             if isinstance(lam, Lam):
                 # perform application
+                print("\treducing App")
                 lam.param.bind(app.arg)
                 ast = lam.body
             if isinstance(lam, Symbol):
                 # substitue symbol
+                print("\treducing Symbol")
                 app.lam = lam.get()
             elif isinstance(lam, DupPtr):
                 dup_ptr = lam
@@ -159,10 +161,12 @@ class Evaluator:
                 # ensure we made progress reducing the child
                 assert not d
         elif isinstance(ast, Symbol):
+            print("\treducing Symbol")
             ast = ast.get()
         elif isinstance(ast, DupPtr):
             dup_ptr = ast
             if dup_ptr.state == DupState.EXECUTED:
+                print("\treducing Dup shell")
                 ast = dup_ptr.binding
             else:
                 # the dup has not been executed
@@ -180,9 +184,11 @@ class Evaluator:
                     # this feels like a visitor class
                     left, right = None, None
                     if isinstance(c, Int):
+                        print("\treducing Dup Int")
                         left, right = c, c
                     elif isinstance(c, Sup):
                         sup = c
+                        print("\treducing Dup Sup")
                         # TODO: implement decision betwen Dup-Sup rules
                         # See https://github.com/Kindelia/HVM/blob/master/HOW.md#superposed-duplication
                         '''
@@ -204,6 +210,7 @@ class Evaluator:
                             ra, rb = dup(sup.right)
                             left, right = Sup(la, ra), Sup(lb, rb)
                     elif isinstance(c, Lam):
+                        print("\treducing Dup Lam")
                         lam = c
                         # incrementally clone lambda
                         xa = Symbol()
