@@ -110,12 +110,12 @@ class App:
     def __str__(self):
         return "<App {} {}>".format(str(self.lam), str(self.arg))
 
-# class Add:
-#     def __init__(self, lhs, rhs):
-#         self.lhs = lhs
-#         self.rhs = rhs
-#     def __str__(self):
-#         return "<Add {} {}>".format(str(self.lhs), str(self.rhs))
+class Add:
+    def __init__(self, lhs, rhs):
+        self.lhs = lhs
+        self.rhs = rhs
+    def __str__(self):
+        return "<Add {} {}>".format(str(self.lhs), str(self.rhs))
 
 # class Mul:
 #     def __init__(self, lhs, rhs):
@@ -150,7 +150,7 @@ class Evaluator:
                 print("\treducing App")
                 lam.param.bind(app.arg)
                 ast = lam.body
-            if isinstance(lam, Symbol):
+            elif isinstance(lam, Symbol):
                 # substitue symbol
                 print("\treducing Symbol")
                 app.lam = lam.get()
@@ -160,6 +160,13 @@ class Evaluator:
                 app.lam, d = self.reduce(dup_ptr)
                 # ensure we made progress reducing the child
                 assert not d
+            elif isinstance(lam, App):
+                app_inner = lam
+                app.lam, d = self.reduce(app_inner)
+                # ensure we made progress reducing the child
+                assert not d
+            else:
+                assert False
         elif isinstance(ast, Symbol):
             print("\treducing Symbol")
             ast = ast.get()
@@ -223,6 +230,17 @@ class Evaluator:
                     dup_node.left.bind(left)
                     dup_node.right.bind(right)
                     assert dup_ptr.state == DupState.EXECUTED
+        elif isinstance(ast, Add):
+            add = ast
+            print("\treducing Add")
+            if not isinstance(add.lhs, Int):
+                add.lhs, d = self.reduce(add.lhs)
+                assert not d
+            elif not isinstance(add.rhs, Int):
+                add.rhs, d = self.reduce(add.rhs)
+                assert not d
+            else:
+                ast = Int(add.lhs.value + add.rhs.value)
         elif isinstance(ast, Lam):
             done = True
         elif isinstance(ast, Int):
@@ -291,9 +309,24 @@ def my_test_evaluator():
     e = Evaluator().eval(e)
     print()
 
-# def test_dups():
-#     x = Symbol("x")
-#     f = Lam(x, x)
+def test_k_combinator():
+    x = Symbol("a")
+    i = Lam(x, x)
+    ia, ib = dup(i)
+    x = Symbol("x")
+    y = Symbol("y")
+    k = Lam(x, Lam(y, x))
+    e = App(App(k, App(ia, Int(0))), App(ib, Int(1)))
+    e = Evaluator().eval(e)
+    print()
+
+def test_dups_different():
+    x = Symbol("a")
+    i = Lam(x, x)
+    ia, ib = dup(i)
+    e = Add(App(ia, Int(500)), App(ib, Int(7)))
+    e = Evaluator().eval(e)
+    print()
 
 
 simple_test_evaluator()
@@ -301,5 +334,7 @@ medium_test_evaluator()
 complex_test_evaluator()
 trick_test_evaluator()
 my_test_evaluator()
+test_k_combinator()
+test_dups_different()
 
 print("done")
