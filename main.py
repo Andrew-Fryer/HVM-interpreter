@@ -196,6 +196,7 @@ class Evaluator:
                     elif isinstance(c, Sup):
                         sup = c
                         print("\treducing Dup Sup")
+                        print("\n***LEFT: {}***\n***RIGHT: {}***\n".format(str(sup.left), str(sup.right)))
                         # TODO: implement decision betwen Dup-Sup rules
                         # See https://github.com/Kindelia/HVM/blob/master/HOW.md#superposed-duplication
                         '''
@@ -339,13 +340,34 @@ def test_dups_different():
     e = Evaluator().eval(e)
     print()
 
+def try_to_trigger_dup_sup_2():
+    x1 = Symbol()
+    x1a, x1b = dup(x1)
+    x2 = Symbol()
+    x2a, x2b = dup(x2)
+    f = Symbol()
+    fa, fb = dup(f)
+    y = Lam(f, App(Lam(x1, App(fa, App(x1a, x1b))), Lam(x2, App(fb, App(x2a, x2b)))))
+    pass
 
-simple_test_evaluator()
-medium_test_evaluator()
-complex_test_evaluator()
-trick_test_evaluator()
-my_test_evaluator()
-test_k_combinator()
-test_dups_different()
+def infinite_recursion_test():
+    x1 = Symbol()
+    x1a, x1b = dup(x1)
+    x2 = Symbol()
+    x2a, x2b = dup(x2)
+    e = App(Lam(x1, App(x1a, x1b)), Lam(x2, App(x2a, x2b)))
+    e = Evaluator().eval(e)
+    print()
+
+
+# simple_test_evaluator()
+# medium_test_evaluator()
+# complex_test_evaluator()
+# trick_test_evaluator()
+# my_test_evaluator()
+# test_k_combinator()
+# test_dups_different()
+
+infinite_recursion_test()
 
 print("done")
