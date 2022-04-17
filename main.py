@@ -117,12 +117,12 @@ class Add:
     def __str__(self):
         return "<Add {} {}>".format(str(self.lhs), str(self.rhs))
 
-# class Mul:
-#     def __init__(self, lhs, rhs):
-#         self.lhs = lhs
-#         self.rhs = rhs
-#     def __str__(self):
-#         return "<Mul {} {}>".format(str(self.lhs), str(self.rhs))
+class Mul:
+    def __init__(self, lhs, rhs):
+        self.lhs = lhs
+        self.rhs = rhs
+    def __str__(self):
+        return "<Mul {} {}>".format(str(self.lhs), str(self.rhs))
 
 class Int:
     def __init__(self, value):
@@ -241,6 +241,17 @@ class Evaluator:
                 assert not d
             else:
                 ast = Int(add.lhs.value + add.rhs.value)
+        elif isinstance(ast, Mul):
+            mul = ast
+            print("\treducing Mul")
+            if not isinstance(mul.lhs, Int):
+                mul.lhs, d = self.reduce(mul.lhs)
+                assert not d
+            elif not isinstance(mul.rhs, Int):
+                mul.rhs, d = self.reduce(mul.rhs)
+                assert not d
+            else:
+                ast = Int(mul.lhs.value * mul.rhs.value)
         elif isinstance(ast, Lam):
             done = True
         elif isinstance(ast, Int):
@@ -324,7 +335,7 @@ def test_dups_different():
     x = Symbol("a")
     i = Lam(x, x)
     ia, ib = dup(i)
-    e = Add(App(ia, Int(500)), App(ib, Int(7)))
+    e = Mul(App(ia, Int(500)), App(ib, Int(7)))
     e = Evaluator().eval(e)
     print()
 
