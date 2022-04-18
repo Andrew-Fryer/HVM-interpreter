@@ -220,7 +220,7 @@ class Evaluator:
                         end_of_duping = True
                         # if isinstance(sup.left, App) and isinstance(sup.right, App):
                         #     end_of_duping = False
-                        end_of_duping = choices.pop(0)
+                        # end_of_duping = choices.pop(0)
 
                         if end_of_duping:
                             left, right = sup.left, sup.right
