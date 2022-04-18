@@ -407,7 +407,7 @@ def infinite_recursion_test():
 # test_k_combinator()
 # test_dups_different()
 
-use_y_combinator()
-# infinite_recursion_test()
+# use_y_combinator()
+infinite_recursion_test()
 
 print("done")
