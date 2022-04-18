@@ -366,9 +366,6 @@ def test_dups_different():
     e = Evaluator().eval(e)
     print()
 
-def try_to_trigger_dup_sup_2():
-    pass
-
 def use_y_combinator():
     x1 = Symbol()
     x1a, x1b = dup(x1)
@@ -408,6 +405,6 @@ def infinite_recursion_test():
 # test_dups_different()
 
 # use_y_combinator()
-infinite_recursion_test()
+# infinite_recursion_test()
 
 print("done")
