@@ -130,6 +130,15 @@ class Int:
     def __str__(self):
         return str(self.value)
 
+class Ite:
+    def __init__(self, predicate, then_exp, else_exp):
+        self.predicate = predicate
+        self.then_exp = then_exp
+        self.else_exp = else_exp
+    def __str__(self):
+        return "<Ite {} {} {}>".format(str(self.predicate), str(self.then_exp), str(self.else_exp))
+
+choices = [True, False, True, False, True, False] + [True] * 100
 class Evaluator:
     def __init__(self):
         pass
@@ -165,6 +174,11 @@ class Evaluator:
                 app.lam, d = self.reduce(app_inner)
                 # ensure we made progress reducing the child
                 assert not d
+            elif isinstance(lam, Sup):
+                sup = lam
+                arg_a, arg_b = dup(arg)
+                print("\treducing App Sup")
+                ast = Sup(App(sup.left, arg_a), App(sup.right, arg_b))
             else:
                 assert False
         elif isinstance(ast, Symbol):
@@ -182,7 +196,8 @@ class Evaluator:
                 d = True
                 if isinstance(c, App)\
                     or isinstance(c, Symbol)\
-                        or isinstance(c, DupPtr):
+                        or isinstance(c, DupPtr)\
+                            or isinstance(c, Ite): # I think this is right, but should require rules for Ite of Sup
                     dup_node.child, d = self.reduce(c)
                     # ensure we made progress reducing the child
                     assert not d
@@ -203,6 +218,9 @@ class Evaluator:
                         "If this Dup-Sup represents the end of a duplication process, it must go with the former rule. However, if you're duplicating a term, which itself duplicates something, then this rule must be used."
                         '''
                         end_of_duping = True
+                        # if isinstance(sup.left, App) and isinstance(sup.right, App):
+                        #     end_of_duping = False
+                        end_of_duping = choices.pop(0)
 
                         if end_of_duping:
                             left, right = sup.left, sup.right
@@ -244,7 +262,6 @@ class Evaluator:
                 ast = Int(add.lhs.value + add.rhs.value)
         elif isinstance(ast, Mul):
             mul = ast
-            print("\treducing Mul")
             if not isinstance(mul.lhs, Int):
                 mul.lhs, d = self.reduce(mul.lhs)
                 assert not d
@@ -252,7 +269,16 @@ class Evaluator:
                 mul.rhs, d = self.reduce(mul.rhs)
                 assert not d
             else:
+                print("\treducing Mul")
                 ast = Int(mul.lhs.value * mul.rhs.value)
+        elif isinstance(ast, Ite):
+            ite = ast
+            if not isinstance(ite.predicate, Int):
+                ite.predicate, d = self.reduce(ite.predicate)
+                assert not d
+            else:
+                print("\treducing Ite")
+                ast = ite.then_exp if ite.predicate.value != 0 else ite.else_exp
         elif isinstance(ast, Lam):
             done = True
         elif isinstance(ast, Int):
@@ -341,6 +367,9 @@ def test_dups_different():
     print()
 
 def try_to_trigger_dup_sup_2():
+    pass
+
+def use_y_combinator():
     x1 = Symbol()
     x1a, x1b = dup(x1)
     x2 = Symbol()
@@ -348,7 +377,17 @@ def try_to_trigger_dup_sup_2():
     f = Symbol()
     fa, fb = dup(f)
     y = Lam(f, App(Lam(x1, App(fa, App(x1a, x1b))), Lam(x2, App(fb, App(x2a, x2b)))))
-    pass
+
+    f = Symbol()
+    n = Symbol()
+    na, n_ = dup(n)
+    nb, nc = dup(n_)
+    fun = Lam(n, Lam(f, Ite(na, App(f, Add(nb, 1)), nc)))
+
+    e = App(y, App(fun, Int(-1)))
+
+    e = Evaluator().eval(e)
+    print()
 
 def infinite_recursion_test():
     x1 = Symbol()
@@ -368,6 +407,7 @@ def infinite_recursion_test():
 # test_k_combinator()
 # test_dups_different()
 
-infinite_recursion_test()
+use_y_combinator()
+# infinite_recursion_test()
 
 print("done")
