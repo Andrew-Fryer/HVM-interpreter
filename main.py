@@ -138,7 +138,6 @@ class Ite:
     def __str__(self):
         return "<Ite {} {} {}>".format(str(self.predicate), str(self.then_exp), str(self.else_exp))
 
-choices = [True, False, True, False, True, False] + [True] * 100
 class Evaluator:
     def __init__(self):
         pass
@@ -398,7 +397,7 @@ def infinite_recursion_test():
 
 # simple_test_evaluator()
 # medium_test_evaluator()
-# complex_test_evaluator()
+complex_test_evaluator()
 # trick_test_evaluator()
 # my_test_evaluator()
 # test_k_combinator()
