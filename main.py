@@ -48,7 +48,7 @@ class Dup:
         self.right = None
         self.cache = None
 
-        self.id = Dup.ctr
+        self.id = Dup.ctr # this is unique for all Dup objects
         Dup.ctr += 1
     def link_in(self, left, right):
         self.left = left
@@ -60,8 +60,9 @@ class DupState(Enum):
 
 # duplicate/fan in nodes
 class DupPtr:
-    def __init__(self, dup: Dup):
+    def __init__(self, dup: Dup, id):
         self.d = dup
+        self.id = id # this is the id of the ansector/original dup in the source 
         self.state = DupState.FRESH
         self.binding = None
     def bind(self, value):
@@ -82,17 +83,20 @@ class DupRight(DupPtr):
         return "<Dup_{}>".format(str(self.d.id))
 
 # helper for building ASTs in tests
-def dup(child):
+def dup(child, id=None):
     d = Dup(child)
-    l, r = DupLeft(d), DupRight(d)
+    if id == None:
+        id = d.id # this should only be used when manually building a graph
+    l, r = DupLeft(d, id), DupRight(d, id)
     d.link_in(l, r)
     return l, r
 
 # superposition/fan out node
 class Sup:
-    def __init__(self, left, right):
+    def __init__(self, left, right, dup_id):
         self.left = left
         self.right = right
+        self.id = dup_id
     def __str__(self):
         return "{" + str(self.left) + ", " + str(self.right) + "}"
 
@@ -175,9 +179,9 @@ class Evaluator:
                 assert not d
             elif isinstance(lam, Sup):
                 sup = lam
-                arg_a, arg_b = dup(arg)
+                arg_a, arg_b = dup(arg, sup.id)
                 print("\treducing App Sup")
-                ast = Sup(App(sup.left, arg_a), App(sup.right, arg_b))
+                ast = Sup(App(sup.left, arg_a, sup.id), App(sup.right, arg_b, sup.id))
             else:
                 assert False
         elif isinstance(ast, Symbol):
@@ -210,18 +214,17 @@ class Evaluator:
                     elif isinstance(c, Sup):
                         sup = c
                         print("\treducing Dup Sup")
-                        print("\n***LEFT: {}***\n***RIGHT: {}***\n".format(str(sup.left), str(sup.right)))
-                        # TODO: implement decision betwen Dup-Sup rules
+                        # print("\n***LEFT: {}***\n***RIGHT: {}***\n".format(str(sup.left), str(sup.right)))
                         # See https://github.com/Kindelia/HVM/blob/master/HOW.md#superposed-duplication
                         '''
                         "If this Dup-Sup represents the end of a duplication process, it must go with the former rule. However, if you're duplicating a term, which itself duplicates something, then this rule must be used."
                         '''
-                        end_of_duping = True
-                        # if isinstance(sup.left, App) and isinstance(sup.right, App):
-                        #     end_of_duping = False
-                        # end_of_duping = choices.pop(0)
-
+                        # next line is copied from:
+                        # https://github.com/Kindelia/HVM/blob/master/src/runtime.c#L622
+                        end_of_duping = dup_ptr.id == c.id
+                        # end_of_duping = True
                         if end_of_duping:
+                            print("\tusing Dup-Sup 1")
                             left, right = sup.left, sup.right
                         else:
                             # Notation from HVM How:
@@ -231,17 +234,18 @@ class Evaluator:
                             # x = Sup(xA, xB)
                             # y = Sup(yA, yB)
                             # left, right = x, y
-                            la, lb = dup(sup.left)
-                            ra, rb = dup(sup.right)
-                            left, right = Sup(la, ra), Sup(lb, rb)
+                            print("\tusing Dup-Sup 2")
+                            la, lb = dup(sup.left, dup_ptr.id)
+                            ra, rb = dup(sup.right, dup_ptr.id)
+                            left, right = Sup(la, ra, sup.id), Sup(lb, rb, sup.id)
                     elif isinstance(c, Lam):
                         print("\treducing Dup Lam")
                         lam = c
                         # incrementally clone lambda
                         xa = Symbol()
                         xb = Symbol()
-                        lam.param.bind(Sup(xa, xb))
-                        a, b = dup(lam.body)
+                        lam.param.bind(Sup(xa, xb, dup_ptr.id))
+                        a, b = dup(lam.body, dup_ptr.id)
                         left, right = Lam(xa, a), Lam(xb, b)
                     else:
                         assert False
@@ -395,8 +399,8 @@ def infinite_recursion_test():
     print()
 
 
-# simple_test_evaluator()
-# medium_test_evaluator()
+simple_test_evaluator()
+medium_test_evaluator()
 complex_test_evaluator()
 # trick_test_evaluator()
 # my_test_evaluator()
