@@ -272,7 +272,6 @@ class Evaluator:
                     assert dup_ptr.state == DupState.EXECUTED
         elif isinstance(ast, Add):
             add = ast
-            print("\treducing Add")
             if not isinstance(add.lhs, Int):
                 add.lhs, d = self.reduce(add.lhs)
                 assert not d
@@ -280,6 +279,7 @@ class Evaluator:
                 add.rhs, d = self.reduce(add.rhs)
                 assert not d
             else:
+                print("\treducing Add")
                 ast = Int(add.lhs.value + add.rhs.value)
         elif isinstance(ast, Mul):
             mul = ast
