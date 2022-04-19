@@ -433,7 +433,7 @@ def factorial():
     xb, xc = dup(x_)
     fac = Lam(f, Lam(x, Ite(xa, Mul(xb, App(f, Add(xc, Int(-1)))), Int(1))))
 
-    e = App(App(y, fac), Int(100))
+    e = App(App(y, fac), Int(3))
     e = Evaluator().eval(e)
     print()
 
