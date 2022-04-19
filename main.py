@@ -199,8 +199,7 @@ class Evaluator:
                 d = True
                 if isinstance(c, App)\
                     or isinstance(c, Symbol)\
-                        or isinstance(c, DupPtr)\
-                            or isinstance(c, Ite): # I think this is right, but should require rules for Ite of Sup
+                        or isinstance(c, DupPtr):
                     dup_node.child, d = self.reduce(c)
                     # ensure we made progress reducing the child
                     assert not d
@@ -211,6 +210,25 @@ class Evaluator:
                     if isinstance(c, Int):
                         print("\treducing Dup Int")
                         left, right = c, c
+                    elif isinstance(c, Ite):
+                        ite = c
+                        print("\treducing Dup Ite")
+                        pa, pb = dup(ite.predicate, dup_ptr.id)
+                        ta, tb = dup(ite.then_exp, dup_ptr.id)
+                        ea, eb = dup(ite.else_exp, dup_ptr.id)
+                        left, right = Ite(pa, ta, ea), Ite(pb, tb, eb)
+                    elif isinstance(c, Add):
+                        add = c
+                        print("\treducing Dup Add")
+                        la, lb = dup(add.lhs, dup_ptr.id)
+                        ra, rb = dup(add.rhs, dup_ptr.id)
+                        left, right = Add(la, ra), Add(lb, rb)
+                    elif isinstance(c, Mul):
+                        mul = c
+                        print("\treducing Dup Mul")
+                        la, lb = dup(mul.lhs, dup_ptr.id)
+                        ra, rb = dup(mul.rhs, dup_ptr.id)
+                        left, right = Mul(la, ra), Mul(lb, rb)
                     elif isinstance(c, Sup):
                         sup = c
                         print("\treducing Dup Sup")
@@ -413,7 +431,7 @@ def factorial():
     x = Symbol()
     xa, x_ = dup(x)
     xb, xc = dup(x_)
-    fac = Lam(f, Lam(x, Ite(xa, Mul(xb, App(f, Add(xc, Int(-1)))), 1)))
+    fac = Lam(f, Lam(x, Ite(xa, Mul(xb, App(f, Add(xc, Int(-1)))), Int(1))))
 
     e = App(App(y, fac), Int(3))
     e = Evaluator().eval(e)
