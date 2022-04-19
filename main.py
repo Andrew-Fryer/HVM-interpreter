@@ -376,16 +376,46 @@ def use_y_combinator():
     x2a, x2b = dup(x2)
     f = Symbol()
     fa, fb = dup(f)
-    y = Lam(f, App(Lam(x1, App(fa, App(x1a, x1b))), Lam(x2, App(fb, App(x2a, x2b)))))
+    y = Lam(f, App(
+        Lam(x1, App(fa, App(x1a, x1b))),
+        Lam(x2, App(fb, App(x2a, x2b)))
+    ))
 
     f = Symbol()
     n = Symbol()
     na, n_ = dup(n)
-    nb, nc = dup(n_)
-    fun = Lam(n, Lam(f, Ite(na, App(f, Add(nb, 1)), nc)))
+    # nb, nc = dup(n_)
+    # I think it is okay to use n_ twice because it will only be used once because of the semantics of Ite
+    fun = Lam(n, Lam(f, Ite(na, App(f, Add(n_, 1)), n_)))
 
     e = App(y, App(fun, Int(-1)))
 
+    e = Evaluator().eval(e)
+    print()
+
+def factorial():
+    x1 = Symbol()
+    x1a, x1b = dup(x1)
+    x2 = Symbol()
+    x2a, x2b = dup(x2)
+    f = Symbol()
+    fa, fb = dup(f)
+    y = Lam(f, App(
+        Lam(x1, App(fa, App(x1a, x1b))),
+        Lam(x2, App(fb, App(x2a, x2b)))
+    ))
+
+    # I'm copying this from here:
+    # https://levelup.gitconnected.com/implementing-recursion-with-the-y-combinator-in-any-language-9e83fa369ca
+    # this has the answer in the 1st comment:
+    # https://www.youtube.com/watch?v=9T8A89jgeTI
+    f = Symbol()
+    x = Symbol()
+    xa, x_ = dup(x)
+    xb, xc = dup(x_)
+    fac = Lam(f, Lam(x, Ite(xa, Mul(xb, App(f, Add(xc, Int(-1)))), 1)))
+
+    e = App(App(y, fac), Int(3))
     e = Evaluator().eval(e)
     print()
 
@@ -407,7 +437,8 @@ def infinite_recursion_test():
 # test_k_combinator()
 # test_dups_different()
 
-use_y_combinator()
+# use_y_combinator()
+factorial()
 # infinite_recursion_test()
 
 print("done")
