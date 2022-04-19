@@ -181,7 +181,7 @@ class Evaluator:
                 sup = lam
                 arg_a, arg_b = dup(arg, sup.id)
                 print("\treducing App Sup")
-                ast = Sup(App(sup.left, arg_a, sup.id), App(sup.right, arg_b, sup.id))
+                ast = Sup(App(sup.left, arg_a), App(sup.right, arg_b), sup.id)
             else:
                 assert False
         elif isinstance(ast, Symbol):
@@ -399,15 +399,15 @@ def infinite_recursion_test():
     print()
 
 
-simple_test_evaluator()
-medium_test_evaluator()
-complex_test_evaluator()
+# simple_test_evaluator()
+# medium_test_evaluator()
+# complex_test_evaluator()
 # trick_test_evaluator()
 # my_test_evaluator()
 # test_k_combinator()
 # test_dups_different()
 
-# use_y_combinator()
+use_y_combinator()
 # infinite_recursion_test()
 
 print("done")
