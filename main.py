@@ -405,6 +405,7 @@ def use_y_combinator():
     # nb, nc = dup(n_)
     # I think it is okay to use n_ twice because it will only be used once because of the semantics of Ite
     fun = Lam(n, Lam(f, Ite(na, App(f, Add(n_, 1)), n_)))
+    # ^ I think I just need to swap f and na...
 
     e = App(y, App(fun, Int(-1)))
 
