@@ -1,0 +1,490 @@
+<App <App <Lam x_2 <App <Lam x_0 <App <Dup_2 x_2> <App <Dup_0 x_0> <Dup_0>>>> <Lam x_1 <App <Dup_2> <App <Dup_1 x_1> <Dup_1>>>>>> <Lam x_3 <Lam x_4 <Ite <Dup_3 x_4> <Mul <Dup_4 <Dup_3>> <App x_3 <Add <Dup_4> -1>>> 1>>>> 3>
+	reducing App
+<App <App <Lam x_0 <App <Dup_2 x_2=[<Lam x_3 <Lam x_4 <Ite <Dup_3 x_4> <Mul <Dup_4 <Dup_3>> <App x_3 <Add <Dup_4> -1>>> 1>>>]> <App <Dup_0 x_0> <Dup_0>>>> <Lam x_1 <App <Dup_2> <App <Dup_1 x_1> <Dup_1>>>>> 3>
+	reducing App
+<App <App <Dup_2 x_2=[<Lam x_3 <Lam x_4 <Ite <Dup_3 x_4> <Mul <Dup_4 <Dup_3>> <App x_3 <Add <Dup_4> -1>>> 1>>>]> <App <Dup_0 x_0=[<Lam x_1 <App <Dup_2> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>> 3>
+	reducing Symbol
+<App <App <Dup_2 <Lam x_3 <Lam x_4 <Ite <Dup_3 x_4> <Mul <Dup_4 <Dup_3>> <App x_3 <Add <Dup_4> -1>>> 1>>>> <App <Dup_0 x_0=[<Lam x_1 <App <Dup_2> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>> 3>
+	reducing Dup Lam
+<App <App <DupLeft <Lam x_5 <Dup_5 <Lam x_4 <Ite <Dup_3 x_4> <Mul <Dup_4 <Dup_3>> <App x_3=[{x_5, x_6}] <Add <Dup_4> -1>>> 1>>>>> <App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <Dup_5>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>> 3>
+	reducing Dup shell
+<App <App <Lam x_5 <Dup_5 <Lam x_4 <Ite <Dup_3 x_4> <Mul <Dup_4 <Dup_3>> <App x_3=[{x_5, x_6}] <Add <Dup_4> -1>>> 1>>>> <App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <Dup_5>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>> 3>
+	reducing App
+<App <Dup_5 <Lam x_4 <Ite <Dup_3 x_4> <Mul <Dup_4 <Dup_3>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <Dup_5>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>> 1>>> 3>
+	reducing Dup Lam
+<App <DupLeft <Lam x_7 <Dup_6 <Ite <Dup_3 x_4=[{x_7, x_8}]> <Mul <Dup_4 <Dup_3>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <Dup_6>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>> 1>>>> 3>
+	reducing Dup shell
+<App <Lam x_7 <Dup_6 <Ite <Dup_3 x_4=[{x_7, x_8}]> <Mul <Dup_4 <Dup_3>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <Dup_6>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>> 1>>> 3>
+	reducing App
+<Dup_6 <Ite <Dup_3 x_4=[{x_7=[3], x_8}]> <Mul <Dup_4 <Dup_3>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <Dup_6>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>> 1>>
+	reducing Dup Ite
+<DupLeft <Ite <Dup_7 <Dup_3 x_4=[{x_7=[3], x_8}]>> <Dup_8 <Mul <Dup_4 <Dup_3>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <Dup_7> <Dup_8> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>> <Dup_9 1>>>
+	reducing Dup shell
+<Ite <Dup_7 <Dup_3 x_4=[{x_7=[3], x_8}]>> <Dup_8 <Mul <Dup_4 <Dup_3>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <Dup_7> <Dup_8> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>> <Dup_9 1>>
+	reducing Symbol
+<Ite <Dup_7 <Dup_3 {x_7=[3], x_8}>> <Dup_8 <Mul <Dup_4 <Dup_3>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <Dup_7> <Dup_8> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>> <Dup_9 1>>
+	reducing Dup Sup
+	using Dup-Sup 2
+<Ite <Dup_7 <DupLeft {<Dup_10 x_7=[3]>, <Dup_11 x_8>}>> <Dup_8 <Mul <Dup_4 <DupRight {<Dup_10>, <Dup_11>}>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <Dup_7> <Dup_8> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>> <Dup_9 1>>
+	reducing Dup shell
+<Ite <Dup_7 {<Dup_10 x_7=[3]>, <Dup_11 x_8>}> <Dup_8 <Mul <Dup_4 <DupRight {<Dup_10>, <Dup_11>}>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <Dup_7> <Dup_8> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>> <Dup_9 1>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Ite <DupLeft <Dup_10 x_7=[3]>> <Dup_8 <Mul <Dup_4 <DupRight {<Dup_10>, <Dup_11>}>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <Dup_8> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>> <Dup_9 1>>
+	reducing Dup shell
+<Ite <Dup_10 x_7=[3]> <Dup_8 <Mul <Dup_4 <DupRight {<Dup_10>, <Dup_11>}>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <Dup_8> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>> <Dup_9 1>>
+	reducing Symbol
+<Ite <Dup_10 3> <Dup_8 <Mul <Dup_4 <DupRight {<Dup_10>, <Dup_11>}>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <Dup_8> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>> <Dup_9 1>>
+	reducing Dup Int
+<Ite <DupLeft 3> <Dup_8 <Mul <Dup_4 <DupRight {<DupRight 3>, <Dup_11>}>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <Dup_8> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>> <Dup_9 1>>
+	reducing Dup shell
+<Ite 3 <Dup_8 <Mul <Dup_4 <DupRight {<DupRight 3>, <Dup_11>}>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <Dup_8> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>> <Dup_9 1>>
+	reducing Ite
+<Dup_8 <Mul <Dup_4 <DupRight {<DupRight 3>, <Dup_11>}>> <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <Dup_8> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>>
+	reducing Dup Mul
+<DupLeft <Mul <Dup_12 <Dup_4 <DupRight {<DupRight 3>, <Dup_11>}>>> <Dup_13 <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <Dup_12> <Dup_13>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>>>
+	reducing Dup shell
+<Mul <Dup_12 <Dup_4 <DupRight {<DupRight 3>, <Dup_11>}>>> <Dup_13 <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <Dup_12> <Dup_13>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>>
+	reducing Dup shell
+<Mul <Dup_12 <Dup_4 {<DupRight 3>, <Dup_11>}>> <Dup_13 <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <Dup_12> <Dup_13>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <Dup_4> -1>>>>
+	reducing Dup Sup
+	using Dup-Sup 2
+<Mul <Dup_12 <DupLeft {<Dup_14 <DupRight 3>>, <Dup_15 <Dup_11>>}>> <Dup_13 <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <Dup_12> <Dup_13>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <DupRight {<Dup_14>, <Dup_15>}> -1>>>>
+	reducing Dup shell
+<Mul <Dup_12 {<Dup_14 <DupRight 3>>, <Dup_15 <Dup_11>>}> <Dup_13 <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <Dup_12> <Dup_13>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <DupRight {<Dup_14>, <Dup_15>}> -1>>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Mul <DupLeft <Dup_14 <DupRight 3>>> <Dup_13 <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <Dup_13>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <DupRight {<Dup_14>, <Dup_15>}> -1>>>>
+	reducing Dup shell
+<Mul <Dup_14 <DupRight 3>> <Dup_13 <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <Dup_13>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <DupRight {<Dup_14>, <Dup_15>}> -1>>>>
+	reducing Dup shell
+<Mul <Dup_14 3> <Dup_13 <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <Dup_13>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <DupRight {<Dup_14>, <Dup_15>}> -1>>>>
+	reducing Dup Int
+<Mul <DupLeft 3> <Dup_13 <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <Dup_13>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing Dup shell
+<Mul 3 <Dup_13 <App x_3=[{x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <Dup_13>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6}] <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing Symbol
+<Mul 3 <Dup_13 <App {x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <Dup_13>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>], x_6} <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing App Sup
+<Mul 3 <Dup_13 {<App x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <Dup_13>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>] <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>, <App x_6 <Dup_16>>}>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Mul 3 <DupLeft <App x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6 <Dup_16>>>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>] <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>>
+	reducing Dup shell
+<Mul 3 <App x_5=[<App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6 <Dup_16>>>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>>] <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing Symbol
+<Mul 3 <App <App <Dup_0 x_0=[<Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6 <Dup_16>>>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>]> <Dup_0>> <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing Symbol
+<Mul 3 <App <App <Dup_0 <Lam x_1 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6 <Dup_16>>>>> <Dup_9>>>>>>> <App <Dup_1 x_1> <Dup_1>>>>> <Dup_0>> <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing Dup Lam
+<Mul 3 <App <App <DupLeft <Lam x_9 <Dup_17 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6 <Dup_16>>>>> <Dup_9>>>>>>> <App <Dup_1 x_1=[{x_9, x_10}]> <Dup_1>>>>>> <DupRight <Lam x_10 <Dup_17>>>> <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing Dup shell
+<Mul 3 <App <App <Lam x_9 <Dup_17 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6 <Dup_16>>>>> <Dup_9>>>>>>> <App <Dup_1 x_1=[{x_9, x_10}]> <Dup_1>>>>> <DupRight <Lam x_10 <Dup_17>>>> <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing App
+<Mul 3 <App <Dup_17 <App <DupRight <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6 <Dup_16>>>>> <Dup_9>>>>>>> <App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <Dup_17>>>], x_10}]> <Dup_1>>>> <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing Dup shell
+<Mul 3 <App <Dup_17 <App <Lam x_6 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6 <Dup_16>>>>> <Dup_9>>>>>> <App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <Dup_17>>>], x_10}]> <Dup_1>>>> <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing App
+<Mul 3 <App <Dup_17 <DupRight <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <Dup_17>>>], x_10}]> <Dup_1>>] <Dup_16>>>>> <Dup_9>>>>>> <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing Dup shell
+<Mul 3 <App <Dup_17 <Lam x_8 <DupRight <Ite <DupRight <Dup_11 x_8>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <Dup_17>>>], x_10}]> <Dup_1>>] <Dup_16>>>>> <Dup_9>>>>> <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing Dup Lam
+<Mul 3 <App <DupLeft <Lam x_11 <Dup_18 <DupRight <Ite <DupRight <Dup_11 x_8=[{x_11, x_12}]>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <Dup_18>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>> <Dup_9>>>>>> <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing Dup shell
+<Mul 3 <App <Lam x_11 <Dup_18 <DupRight <Ite <DupRight <Dup_11 x_8=[{x_11, x_12}]>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <Dup_18>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>> <Dup_9>>>>> <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>>>
+	reducing App
+<Mul 3 <Dup_18 <DupRight <Ite <DupRight <Dup_11 x_8=[{x_11=[<Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>], x_12}]>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <Dup_18>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>> <Dup_9>>>>>
+	reducing Dup shell
+<Mul 3 <Dup_18 <Ite <DupRight <Dup_11 x_8=[{x_11=[<Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>], x_12}]>> <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <Dup_18>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>> <Dup_9>>>>
+	reducing Dup Ite
+<Mul 3 <DupLeft <Ite <Dup_19 <DupRight <Dup_11 x_8=[{x_11=[<Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>], x_12}]>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <Dup_19> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>>> <Dup_21 <Dup_9>>>>>
+	reducing Dup shell
+<Mul 3 <Ite <Dup_19 <DupRight <Dup_11 x_8=[{x_11=[<Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>], x_12}]>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <Dup_19> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup shell
+<Mul 3 <Ite <Dup_19 <Dup_11 x_8=[{x_11=[<Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>], x_12}]>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <Dup_19> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Symbol
+<Mul 3 <Ite <Dup_19 <Dup_11 {x_11=[<Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>], x_12}>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <Dup_11>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <Dup_19> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup Sup
+	using Dup-Sup 2
+<Mul 3 <Ite <Dup_19 <DupLeft {<Dup_22 x_11=[<Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>]>, <Dup_23 x_12>}>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<Dup_22>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <Dup_19> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup shell
+<Mul 3 <Ite <Dup_19 {<Dup_22 x_11=[<Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>]>, <Dup_23 x_12>}> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<Dup_22>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <Dup_19> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Mul 3 <Ite <DupLeft <Dup_22 x_11=[<Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>]>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<Dup_22>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup shell
+<Mul 3 <Ite <Dup_22 x_11=[<Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>]> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<Dup_22>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Symbol
+<Mul 3 <Ite <Dup_22 <Dup_16 <Add <DupRight {<DupRight 3>, <Dup_15>}> -1>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<Dup_22>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <Dup_16>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup Add
+<Mul 3 <Ite <Dup_22 <DupLeft <Add <Dup_24 <DupRight {<DupRight 3>, <Dup_15>}>> <Dup_25 -1>>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<Dup_22>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <Dup_24> <Dup_25>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup shell
+<Mul 3 <Ite <Dup_22 <Add <Dup_24 <DupRight {<DupRight 3>, <Dup_15>}>> <Dup_25 -1>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<Dup_22>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <Dup_24> <Dup_25>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup Add
+<Mul 3 <Ite <DupLeft <Add <Dup_26 <Dup_24 <DupRight {<DupRight 3>, <Dup_15>}>>> <Dup_27 <Dup_25 -1>>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <Dup_26> <Dup_27>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <Dup_24> <Dup_25>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup shell
+<Mul 3 <Ite <Add <Dup_26 <Dup_24 <DupRight {<DupRight 3>, <Dup_15>}>>> <Dup_27 <Dup_25 -1>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <Dup_26> <Dup_27>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <Dup_24> <Dup_25>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup shell
+<Mul 3 <Ite <Add <Dup_26 <Dup_24 {<DupRight 3>, <Dup_15>}>> <Dup_27 <Dup_25 -1>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <Dup_26> <Dup_27>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <Dup_24> <Dup_25>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Mul 3 <Ite <Add <Dup_26 <DupLeft <DupRight 3>>> <Dup_27 <Dup_25 -1>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <Dup_26> <Dup_27>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <Dup_25>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup shell
+<Mul 3 <Ite <Add <Dup_26 <DupRight 3>> <Dup_27 <Dup_25 -1>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <Dup_26> <Dup_27>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <Dup_25>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup shell
+<Mul 3 <Ite <Add <Dup_26 3> <Dup_27 <Dup_25 -1>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <Dup_26> <Dup_27>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <Dup_25>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup Int
+<Mul 3 <Ite <Add <DupLeft 3> <Dup_27 <Dup_25 -1>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <DupRight 3> <Dup_27>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <Dup_25>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup shell
+<Mul 3 <Ite <Add 3 <Dup_27 <Dup_25 -1>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <DupRight 3> <Dup_27>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <Dup_25>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup Int
+<Mul 3 <Ite <Add 3 <Dup_27 <DupLeft -1>>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <DupRight 3> <Dup_27>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <DupRight -1>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup shell
+<Mul 3 <Ite <Add 3 <Dup_27 -1>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <DupRight 3> <Dup_27>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <DupRight -1>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup Int
+<Mul 3 <Ite <Add 3 <DupLeft -1>> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <DupRight -1>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Dup shell
+<Mul 3 <Ite <Add 3 -1> <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <DupRight -1>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Add
+<Mul 3 <Ite 2 <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <DupRight -1>>>>>>>> <Dup_21 <Dup_9>>>>
+	reducing Ite
+<Mul 3 <Dup_20 <DupRight <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Dup_20 <Mul <DupRight <Dup_15 <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_23>}>>> <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <Dup_20> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <DupRight -1>>>>>>>>
+	reducing Dup Mul
+<Mul 3 <DupLeft <Mul <Dup_28 <DupRight <Dup_15 <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_23>}>>>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <Dup_28> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul <Dup_28 <DupRight <Dup_15 <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_23>}>>>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <Dup_28> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul <Dup_28 <Dup_15 <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_23>}>>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <Dup_28> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul <Dup_28 <Dup_15 {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_23>}>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <Dup_28> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <Dup_15>> <DupRight -1>>>>>>>>
+	reducing Dup Sup
+	using Dup-Sup 2
+<Mul 3 <Mul <Dup_28 <DupLeft {<Dup_30 <DupRight <Add <DupRight 3> <DupRight -1>>>>, <Dup_31 <Dup_23>>}>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <Dup_28> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<Dup_30>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul <Dup_28 {<Dup_30 <DupRight <Add <DupRight 3> <DupRight -1>>>>, <Dup_31 <Dup_23>>}> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <Dup_28> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<Dup_30>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Mul 3 <Mul <DupLeft <Dup_30 <DupRight <Add <DupRight 3> <DupRight -1>>>>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<Dup_30>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul <Dup_30 <DupRight <Add <DupRight 3> <DupRight -1>>>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<Dup_30>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul <Dup_30 <Add <DupRight 3> <DupRight -1>>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<Dup_30>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup Add
+<Mul 3 <Mul <DupLeft <Add <Dup_32 <DupRight 3>> <Dup_33 <DupRight -1>>>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<DupRight <Add <Dup_32> <Dup_33>>>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul <Add <Dup_32 <DupRight 3>> <Dup_33 <DupRight -1>>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<DupRight <Add <Dup_32> <Dup_33>>>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul <Add <Dup_32 3> <Dup_33 <DupRight -1>>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<DupRight <Add <Dup_32> <Dup_33>>>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup Int
+<Mul 3 <Mul <Add <DupLeft 3> <Dup_33 <DupRight -1>>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <Dup_33>>>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul <Add 3 <Dup_33 <DupRight -1>>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <Dup_33>>>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul <Add 3 <Dup_33 -1>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <Dup_33>>>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup Int
+<Mul 3 <Mul <Add 3 <DupLeft -1>> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul <Add 3 -1> <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Add
+<Mul 3 <Mul 2 <Dup_29 <DupRight <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Dup_29 <App x_6=[<App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>>] <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing Symbol
+<Mul 3 <Mul 2 <Dup_29 <App <App <Dup_1 x_1=[{x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}]> <Dup_1>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing Symbol
+<Mul 3 <Mul 2 <Dup_29 <App <App <Dup_1 {x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>], x_10}> <Dup_1>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing Dup Sup
+	using Dup-Sup 2
+<Mul 3 <Mul 2 <Dup_29 <App <App <DupLeft {<Dup_34 x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>]>, <Dup_35 x_10>}> <DupRight {<Dup_34>, <Dup_35>}>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Dup_29 <App <App {<Dup_34 x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>]>, <Dup_35 x_10>} <DupRight {<Dup_34>, <Dup_35>}>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing App Sup
+<Mul 3 <Mul 2 <Dup_29 <App {<App <Dup_34 x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>]> <Dup_36 <DupRight {<Dup_34>, <Dup_35>}>>>, <App <Dup_35 x_10> <Dup_36>>} <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing App Sup
+<Mul 3 <Mul 2 <Dup_29 {<App <App <Dup_34 x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <Dup_29>>> <Dup_21>>>>>>>]> <Dup_36 <DupRight {<Dup_34>, <Dup_35>}>>> <Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>, <App <App <Dup_35 x_10> <Dup_36>> <Dup_37>>}>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Mul 3 <Mul 2 <DupLeft <App <App <Dup_34 x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10> <Dup_36>> <Dup_37>>>>> <Dup_21>>>>>>>]> <Dup_36 <DupRight {<Dup_34>, <Dup_35>}>>> <Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <App <App <Dup_34 x_9=[<DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10> <Dup_36>> <Dup_37>>>>> <Dup_21>>>>>>>]> <Dup_36 <DupRight {<Dup_34>, <Dup_35>}>>> <Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing Symbol
+<Mul 3 <Mul 2 <App <App <Dup_34 <DupRight <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10> <Dup_36>> <Dup_37>>>>> <Dup_21>>>>>>>> <Dup_36 <DupRight {<Dup_34>, <Dup_35>}>>> <Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <App <App <Dup_34 <Lam x_10 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10> <Dup_36>> <Dup_37>>>>> <Dup_21>>>>>>> <Dup_36 <DupRight {<Dup_34>, <Dup_35>}>>> <Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing Dup Lam
+<Mul 3 <Mul 2 <App <App <DupLeft <Lam x_13 <Dup_38 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10=[{x_13, x_14}]> <Dup_36>> <Dup_37>>>>> <Dup_21>>>>>>>> <Dup_36 <DupRight {<DupRight <Lam x_14 <Dup_38>>>, <Dup_35>}>>> <Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <App <App <Lam x_13 <Dup_38 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10=[{x_13, x_14}]> <Dup_36>> <Dup_37>>>>> <Dup_21>>>>>>> <Dup_36 <DupRight {<DupRight <Lam x_14 <Dup_38>>>, <Dup_35>}>>> <Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing App
+<Mul 3 <Mul 2 <App <Dup_38 <DupRight <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <Dup_38>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>> <Dup_21>>>>>> <Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <App <Dup_38 <Lam x_12 <DupRight <Ite <DupRight <Dup_23 x_12>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <Dup_38>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>> <Dup_21>>>>> <Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing Dup Lam
+<Mul 3 <Mul 2 <App <DupLeft <Lam x_15 <Dup_39 <DupRight <Ite <DupRight <Dup_23 x_12=[{x_15, x_16}]>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <Dup_39>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>> <Dup_21>>>>>> <Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <App <Lam x_15 <Dup_39 <DupRight <Ite <DupRight <Dup_23 x_12=[{x_15, x_16}]>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <Dup_39>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>> <Dup_21>>>>> <Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>>>>
+	reducing App
+<Mul 3 <Mul 2 <Dup_39 <DupRight <Ite <DupRight <Dup_23 x_12=[{x_15=[<Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>], x_16}]>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <Dup_39>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>> <Dup_21>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Dup_39 <Ite <DupRight <Dup_23 x_12=[{x_15=[<Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>], x_16}]>> <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <Dup_39>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>> <Dup_21>>>>>
+	reducing Dup Ite
+<Mul 3 <Mul 2 <DupLeft <Ite <Dup_40 <DupRight <Dup_23 x_12=[{x_15=[<Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>], x_16}]>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <Dup_40> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>>> <Dup_42 <Dup_21>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Dup_40 <DupRight <Dup_23 x_12=[{x_15=[<Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>], x_16}]>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <Dup_40> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Dup_40 <Dup_23 x_12=[{x_15=[<Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>], x_16}]>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <Dup_40> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Symbol
+<Mul 3 <Mul 2 <Ite <Dup_40 <Dup_23 {x_15=[<Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>], x_16}>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <Dup_23>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <Dup_40> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup Sup
+	using Dup-Sup 2
+<Mul 3 <Mul 2 <Ite <Dup_40 <DupLeft {<Dup_43 x_15=[<Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>]>, <Dup_44 x_16>}>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<Dup_43>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <Dup_40> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Dup_40 {<Dup_43 x_15=[<Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>]>, <Dup_44 x_16>}> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<Dup_43>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <Dup_40> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Mul 3 <Mul 2 <Ite <DupLeft <Dup_43 x_15=[<Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>]>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<Dup_43>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Dup_43 x_15=[<Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>]> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<Dup_43>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Symbol
+<Mul 3 <Mul 2 <Ite <Dup_43 <Dup_37 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<Dup_43>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Dup_43 <Dup_37 <Add <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<Dup_43>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <Dup_37>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup Add
+<Mul 3 <Mul 2 <Ite <Dup_43 <DupLeft <Add <Dup_45 <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>>> <Dup_46 <DupRight -1>>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<Dup_43>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <Dup_45> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Dup_43 <Add <Dup_45 <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>>> <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<Dup_43>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <Dup_45> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup Add
+<Mul 3 <Mul 2 <Ite <DupLeft <Add <Dup_47 <Dup_45 <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>>>> <Dup_48 <Dup_46 <DupRight -1>>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <Dup_47> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <Dup_45> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add <Dup_47 <Dup_45 <DupRight <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>>>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <Dup_47> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <Dup_45> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add <Dup_47 <Dup_45 <DupRight {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <Dup_47> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <Dup_45> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add <Dup_47 <Dup_45 {<DupRight <Add <DupRight 3> <DupRight -1>>>, <Dup_31>}>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <Dup_47> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <Dup_45> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Mul 3 <Mul 2 <Ite <Add <Dup_47 <DupLeft <DupRight <Add <DupRight 3> <DupRight -1>>>>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <Dup_47> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add <Dup_47 <DupRight <Add <DupRight 3> <DupRight -1>>>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <Dup_47> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add <Dup_47 <Add <DupRight 3> <DupRight -1>>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <Dup_47> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup Add
+<Mul 3 <Mul 2 <Ite <Add <DupLeft <Add <Dup_49 <DupRight 3>> <Dup_50 <DupRight -1>>>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <Dup_49> <Dup_50>>> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add <Add <Dup_49 <DupRight 3>> <Dup_50 <DupRight -1>>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <Dup_49> <Dup_50>>> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add <Add <Dup_49 3> <Dup_50 <DupRight -1>>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <Dup_49> <Dup_50>>> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Ite <Add <Add <DupLeft 3> <Dup_50 <DupRight -1>>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <Dup_50>>> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add <Add 3 <Dup_50 <DupRight -1>>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <Dup_50>>> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add <Add 3 <Dup_50 -1>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <Dup_50>>> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Ite <Add <Add 3 <DupLeft -1>> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add <Add 3 -1> <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Add
+<Mul 3 <Mul 2 <Ite <Add 2 <Dup_48 <Dup_46 <DupRight -1>>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add 2 <Dup_48 <Dup_46 -1>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <Dup_46>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Ite <Add 2 <Dup_48 <DupLeft -1>>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <DupRight -1>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add 2 <Dup_48 -1>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_48>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <DupRight -1>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Ite <Add 2 <DupLeft -1>> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <DupRight -1>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Ite <Add 2 -1> <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <DupRight -1>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Add
+<Mul 3 <Mul 2 <Ite 1 <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <DupRight -1>>>>>>>> <Dup_42 <Dup_21>>>>>
+	reducing Ite
+<Mul 3 <Mul 2 <Dup_41 <DupRight <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <DupRight -1>>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Dup_41 <Mul <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_44>}>>> <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <Dup_41> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <DupRight -1>>>>>>>>>
+	reducing Dup Mul
+<Mul 3 <Mul 2 <DupLeft <Mul <Dup_51 <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_44>}>>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <Dup_51> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <DupRight -1>>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Dup_51 <DupRight <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_44>}>>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <Dup_51> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Dup_51 <Dup_31 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_44>}>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <Dup_51> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Dup_51 <Dup_31 {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_44>}>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <Dup_51> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <Dup_31>> <DupRight -1>>>>>>>>>
+	reducing Dup Sup
+	using Dup-Sup 2
+<Mul 3 <Mul 2 <Mul <Dup_51 <DupLeft {<Dup_53 <DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>>, <Dup_54 <Dup_44>>}>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <Dup_51> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<Dup_53>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Dup_51 {<Dup_53 <DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>>, <Dup_54 <Dup_44>>}> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <Dup_51> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<Dup_53>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Mul 3 <Mul 2 <Mul <DupLeft <Dup_53 <DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<Dup_53>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Dup_53 <DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<Dup_53>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Dup_53 <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<Dup_53>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup Add
+<Mul 3 <Mul 2 <Mul <DupLeft <Add <Dup_55 <DupRight <Add <DupRight 3> <DupRight -1>>>> <Dup_56 <DupRight -1>>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <Dup_55> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Add <Dup_55 <DupRight <Add <DupRight 3> <DupRight -1>>>> <Dup_56 <DupRight -1>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <Dup_55> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Add <Dup_55 <Add <DupRight 3> <DupRight -1>>> <Dup_56 <DupRight -1>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <Dup_55> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup Add
+<Mul 3 <Mul 2 <Mul <Add <DupLeft <Add <Dup_57 <DupRight 3>> <Dup_58 <DupRight -1>>>> <Dup_56 <DupRight -1>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <Dup_57> <Dup_58>>> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Add <Add <Dup_57 <DupRight 3>> <Dup_58 <DupRight -1>>> <Dup_56 <DupRight -1>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <Dup_57> <Dup_58>>> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Add <Add <Dup_57 3> <Dup_58 <DupRight -1>>> <Dup_56 <DupRight -1>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <Dup_57> <Dup_58>>> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Mul <Add <Add <DupLeft 3> <Dup_58 <DupRight -1>>> <Dup_56 <DupRight -1>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <Dup_58>>> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Add <Add 3 <Dup_58 <DupRight -1>>> <Dup_56 <DupRight -1>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <Dup_58>>> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Add <Add 3 <Dup_58 -1>> <Dup_56 <DupRight -1>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <Dup_58>>> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Mul <Add <Add 3 <DupLeft -1>> <Dup_56 <DupRight -1>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Add <Add 3 -1> <Dup_56 <DupRight -1>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Add
+<Mul 3 <Mul 2 <Mul <Add 2 <Dup_56 <DupRight -1>>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Add 2 <Dup_56 -1>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_56>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Mul <Add 2 <DupLeft -1>> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul <Add 2 -1> <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Add
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <DupRight <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <App <App <Dup_35 x_10=[{x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>
+	reducing Symbol
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <App <App <Dup_35 {x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <Dup_35>}>>], x_14}> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <App <App <DupLeft x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <DupRight x_14>}>>]> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <App <App x_13=[<Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <DupRight x_14>}>>] <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>
+	reducing Symbol
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <App <App <Dup_36 <DupRight {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <DupRight x_14>}>> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <App <App <Dup_36 {<DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>, <DupRight x_14>}> <Dup_36>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <App <App <DupLeft <DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>> <DupRight <DupRight x_14>>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <App <App <DupRight <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>> <DupRight <DupRight x_14>>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <App <App <Lam x_14 <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>> <DupRight <DupRight x_14>>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>
+	reducing App
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <App <DupRight <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <App <Lam x_16 <DupRight <Ite <DupRight <Dup_44 x_16>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>> <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>>>>>
+	reducing App
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <DupRight <Ite <DupRight <Dup_44 x_16=[<DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>]>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Dup_52 <Ite <DupRight <Dup_44 x_16=[<DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>]>> <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <Dup_52>>> <Dup_42>>>>>>
+	reducing Dup Ite
+<Mul 3 <Mul 2 <Mul 1 <DupLeft <Ite <Dup_59 <DupRight <Dup_44 x_16=[<DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>]>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <DupRight <Ite <Dup_59> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Dup_59 <DupRight <Dup_44 x_16=[<DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>]>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <DupRight <Ite <Dup_59> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Dup_59 <Dup_44 x_16=[<DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>]>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <DupRight <Ite <Dup_59> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Symbol
+<Mul 3 <Mul 2 <Mul 1 <Ite <Dup_59 <Dup_44 <DupRight <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <DupRight <Ite <Dup_59> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Dup_59 <Dup_44 <Add <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <Dup_44>>> <DupRight <Ite <Dup_59> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup Add
+<Mul 3 <Mul 2 <Mul 1 <Ite <Dup_59 <DupLeft <Add <Dup_62 <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>>> <Dup_63 <DupRight -1>>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <Dup_62> <Dup_63>>>>> <DupRight <Ite <Dup_59> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Dup_59 <Add <Dup_62 <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>>> <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <Dup_62> <Dup_63>>>>> <DupRight <Ite <Dup_59> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup Add
+<Mul 3 <Mul 2 <Mul 1 <Ite <DupLeft <Add <Dup_64 <Dup_62 <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>>>> <Dup_65 <Dup_63 <DupRight -1>>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <Dup_62> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <Dup_64> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Dup_64 <Dup_62 <DupRight <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <Dup_62> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <Dup_64> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Dup_64 <Dup_62 <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <Dup_62> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <Dup_64> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Dup_64 <Dup_62 {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_54>}>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <Dup_62> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <Dup_64> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup Sup
+	using Dup-Sup 2
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Dup_64 <DupLeft {<Dup_66 <DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>>, <Dup_67 <Dup_54>>}>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<Dup_66>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <Dup_64> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Dup_64 {<Dup_66 <DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>>, <Dup_67 <Dup_54>>}> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<Dup_66>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <Dup_64> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <DupLeft <Dup_66 <DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<Dup_66>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Dup_66 <DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<Dup_66>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Dup_66 <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<Dup_66>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup Add
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <DupLeft <Add <Dup_68 <DupRight <Add <DupRight 3> <DupRight -1>>>> <Dup_69 <DupRight -1>>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <Dup_68> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add <Dup_68 <DupRight <Add <DupRight 3> <DupRight -1>>>> <Dup_69 <DupRight -1>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <Dup_68> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add <Dup_68 <Add <DupRight 3> <DupRight -1>>> <Dup_69 <DupRight -1>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <Dup_68> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup Add
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add <DupLeft <Add <Dup_70 <DupRight 3>> <Dup_71 <DupRight -1>>>> <Dup_69 <DupRight -1>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <Dup_70> <Dup_71>>> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add <Add <Dup_70 <DupRight 3>> <Dup_71 <DupRight -1>>> <Dup_69 <DupRight -1>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <Dup_70> <Dup_71>>> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add <Add <Dup_70 3> <Dup_71 <DupRight -1>>> <Dup_69 <DupRight -1>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <Dup_70> <Dup_71>>> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add <Add <DupLeft 3> <Dup_71 <DupRight -1>>> <Dup_69 <DupRight -1>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <Dup_71>>> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add <Add 3 <Dup_71 <DupRight -1>>> <Dup_69 <DupRight -1>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <Dup_71>>> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add <Add 3 <Dup_71 -1>> <Dup_69 <DupRight -1>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <Dup_71>>> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add <Add 3 <DupLeft -1>> <Dup_69 <DupRight -1>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add <Add 3 -1> <Dup_69 <DupRight -1>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Add
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add 2 <Dup_69 <DupRight -1>>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add 2 <Dup_69 -1>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <Dup_69>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add 2 <DupLeft -1>> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add <Add 2 -1> <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Add
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add 1 <Dup_65 <Dup_63 <DupRight -1>>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add 1 <Dup_65 <Dup_63 -1>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_67>}> <Dup_63>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add 1 <Dup_65 <DupLeft -1>>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_67>}> <DupRight -1>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add 1 <Dup_65 -1>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_67>}> <DupRight -1>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <Dup_65>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add 1 <DupLeft -1>> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_67>}> <DupRight -1>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <DupRight -1>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Ite <Add 1 -1> <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_67>}> <DupRight -1>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <DupRight -1>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Add
+<Mul 3 <Mul 2 <Mul 1 <Ite 0 <Dup_60 <DupRight <Mul <DupRight <Dup_54 <DupRight <Add <DupRight {<DupRight <Add <DupRight <Add <DupRight 3> <DupRight -1>>> <DupRight -1>>>, <Dup_67>}> <DupRight -1>>>>> <DupRight <Ite <DupRight <Add <DupRight <Dup_67 <Dup_54>>> <DupRight -1>>> <Dup_60> <Dup_61>>>>>> <Dup_61 <Dup_42>>>>>>
+	reducing Ite
+<Mul 3 <Mul 2 <Mul 1 <Dup_61 <Dup_42>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Mul 1 <Dup_61 <Dup_42>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Dup_61 <Dup_42>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Mul 1 <Dup_61 <Dup_42>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Dup_61 <Dup_42>>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Mul 1 <Dup_61 <DupRight 1>>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 <Dup_61 1>>>>
+	reducing Dup Int
+<Mul 3 <Mul 2 <Mul 1 <DupLeft 1>>>>
+	reducing Dup shell
+<Mul 3 <Mul 2 <Mul 1 1>>>
+	reducing Mul
+<Mul 3 <Mul 2 1>>
+	reducing Mul
+<Mul 3 2>
+	reducing Mul
+6
+
+done

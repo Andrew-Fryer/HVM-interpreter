@@ -1,0 +1,57 @@
+<App <Lam x_0 <App <Dup_0 x_0> <Dup_0>>> <Lam x_1 <App <Dup_1 x_1> <Dup_1>>>>
+	reducing App
+<App <Dup_0 x_0=[<Lam x_1 <App <Dup_1 x_1> <Dup_1>>>]> <Dup_0>>
+	reducing Symbol
+<App <Dup_0 <Lam x_1 <App <Dup_1 x_1> <Dup_1>>>> <Dup_0>>
+	reducing Dup Lam
+<App <DupLeft <Lam x_2 <Dup_2 <App <Dup_1 x_1=[{x_2, x_3}]> <Dup_1>>>>> <DupRight <Lam x_3 <Dup_2>>>>
+	reducing Dup shell
+<App <Lam x_2 <Dup_2 <App <Dup_1 x_1=[{x_2, x_3}]> <Dup_1>>>> <DupRight <Lam x_3 <Dup_2>>>>
+	reducing App
+<Dup_2 <App <Dup_1 x_1=[{x_2=[<DupRight <Lam x_3 <Dup_2>>>], x_3}]> <Dup_1>>>
+	reducing Symbol
+<Dup_2 <App <Dup_1 {x_2=[<DupRight <Lam x_3 <Dup_2>>>], x_3}> <Dup_1>>>
+	reducing Dup Sup
+	using Dup-Sup 2
+<Dup_2 <App <DupLeft {<Dup_3 x_2=[<DupRight <Lam x_3 <Dup_2>>>]>, <Dup_4 x_3>}> <DupRight {<Dup_3>, <Dup_4>}>>>
+	reducing Dup shell
+<Dup_2 <App {<Dup_3 x_2=[<DupRight <Lam x_3 <Dup_2>>>]>, <Dup_4 x_3>} <DupRight {<Dup_3>, <Dup_4>}>>>
+	reducing App Sup
+<Dup_2 {<App <Dup_3 x_2=[<DupRight <Lam x_3 <Dup_2>>>]> <Dup_5 <DupRight {<Dup_3>, <Dup_4>}>>>, <App <Dup_4 x_3> <Dup_5>>}>
+	reducing Dup Sup
+	using Dup-Sup 1
+<DupLeft <App <Dup_3 x_2=[<DupRight <Lam x_3 <DupRight <App <Dup_4 x_3> <Dup_5>>>>>]> <Dup_5 <DupRight {<Dup_3>, <Dup_4>}>>>>
+	reducing Dup shell
+<App <Dup_3 x_2=[<DupRight <Lam x_3 <DupRight <App <Dup_4 x_3> <Dup_5>>>>>]> <Dup_5 <DupRight {<Dup_3>, <Dup_4>}>>>
+	reducing Symbol
+<App <Dup_3 <DupRight <Lam x_3 <DupRight <App <Dup_4 x_3> <Dup_5>>>>>> <Dup_5 <DupRight {<Dup_3>, <Dup_4>}>>>
+	reducing Dup shell
+<App <Dup_3 <Lam x_3 <DupRight <App <Dup_4 x_3> <Dup_5>>>>> <Dup_5 <DupRight {<Dup_3>, <Dup_4>}>>>
+	reducing Dup Lam
+<App <DupLeft <Lam x_4 <Dup_6 <DupRight <App <Dup_4 x_3=[{x_4, x_5}]> <Dup_5>>>>>> <Dup_5 <DupRight {<DupRight <Lam x_5 <Dup_6>>>, <Dup_4>}>>>
+	reducing Dup shell
+<App <Lam x_4 <Dup_6 <DupRight <App <Dup_4 x_3=[{x_4, x_5}]> <Dup_5>>>>> <Dup_5 <DupRight {<DupRight <Lam x_5 <Dup_6>>>, <Dup_4>}>>>
+	reducing App
+<Dup_6 <DupRight <App <Dup_4 x_3=[{x_4=[<Dup_5 <DupRight {<DupRight <Lam x_5 <Dup_6>>>, <Dup_4>}>>], x_5}]> <Dup_5>>>>
+	reducing Dup shell
+<Dup_6 <App <Dup_4 x_3=[{x_4=[<Dup_5 <DupRight {<DupRight <Lam x_5 <Dup_6>>>, <Dup_4>}>>], x_5}]> <Dup_5>>>
+	reducing Symbol
+<Dup_6 <App <Dup_4 {x_4=[<Dup_5 <DupRight {<DupRight <Lam x_5 <Dup_6>>>, <Dup_4>}>>], x_5}> <Dup_5>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Dup_6 <App <DupLeft x_4=[<Dup_5 <DupRight {<DupRight <Lam x_5 <Dup_6>>>, <DupRight x_5>}>>]> <Dup_5>>>
+	reducing Dup shell
+<Dup_6 <App x_4=[<Dup_5 <DupRight {<DupRight <Lam x_5 <Dup_6>>>, <DupRight x_5>}>>] <Dup_5>>>
+	reducing Symbol
+<Dup_6 <App <Dup_5 <DupRight {<DupRight <Lam x_5 <Dup_6>>>, <DupRight x_5>}>> <Dup_5>>>
+	reducing Dup shell
+<Dup_6 <App <Dup_5 {<DupRight <Lam x_5 <Dup_6>>>, <DupRight x_5>}> <Dup_5>>>
+	reducing Dup Sup
+	using Dup-Sup 1
+<Dup_6 <App <DupLeft <DupRight <Lam x_5 <Dup_6>>>> <DupRight <DupRight x_5>>>>
+	reducing Dup shell
+<Dup_6 <App <DupRight <Lam x_5 <Dup_6>>> <DupRight <DupRight x_5>>>>
+	reducing Dup shell
+<Dup_6 <App <Lam x_5 <Dup_6>> <DupRight <DupRight x_5>>>>
+	reducing App
+<Dup_6 <Dup_6>>
