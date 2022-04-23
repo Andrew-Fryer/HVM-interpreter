@@ -457,7 +457,7 @@ def infinite_recursion_test():
 # test_dups_different()
 
 # use_y_combinator()
-factorial()
-# infinite_recursion_test()
+# factorial()
+infinite_recursion_test()
 
 print("done")
